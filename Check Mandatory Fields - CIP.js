@@ -14,7 +14,7 @@ function checkMandatoryFields() {
   // Define the ordered list of fields and field groups
   var orderedFieldsAndGroups = [
     ["Group44"],
-	"Task Location",
+    "Task Location",
     "CrewLeader",
     "First Aid Attendant",
     "FAA Cell",
@@ -35,7 +35,7 @@ function checkMandatoryFields() {
     ["Grounding Plan", "GP-NA"],
     ["Workers Concerns or Suggestions", "Concerns-NA"],
     ["Management of Change", "MOC-NA"],
-	["Group100"]
+    ["Group100"]
   ];
 
   // Define a mapping between field names and descriptive text
