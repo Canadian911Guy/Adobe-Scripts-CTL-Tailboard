@@ -5,6 +5,13 @@ var tcFields = ["TCP Company", "TCP In Charge", "Number of TCPs", "Number of TCP
 var isButton44Clicked = false;
 var DEBUG = false;
 
+// Function to initialize fields on document open
+function initialize() {
+    toggleCheckboxState("CheckBox6", "Text44");
+    toggleCheckboxState("CheckBox7", "Text45");
+	toggleEditableField();
+}
+
 // Function to toggle editable state of specific Text fields based on CheckBoxes
 function toggleEditableField() {
   // Retrieve the checkbox and Text7
@@ -276,7 +283,7 @@ function setFieldsEditable(fields, isEditable) {
   "Before Risk 1": "Risk Before - Row #1 (on Page 2)", // Dropdown Field
   "Text40": "Required Controls/Barriers - Row #1 (on Page 2)", // Text Field
   "After Risk 1": "Risk After - Row #1 (on Page 2)", // Dropdown Field
-  "Text33": "Identify Hazards - Row #1 (on Page 2)", // Text Field
+  "Text33": "Identify Job Steps - Row #2 (on Page 2)", // Text Field
   "Text37": "Identify Hazards - Row #2 (on Page 2)", // Text Field
   "Before Risk 2": "Risk Before - Row #2 (on Page 2)", // Dropdown Field
   "Text41": "Required Controls/Barriers - Row #2 (on Page 2)", // Text Field
@@ -425,3 +432,7 @@ function validateCheckboxTextFieldGroup(checkboxFieldName, textFieldName) {
 this.getField("Button44").setAction("MouseUp", "checkMandatoryFields()");
 this.getField("TC").setAction("MouseUp", "toggleRequiredFields0()");
 this.getField("CheckBox200").setAction("MouseUp", "toggleEditableField()");
+
+// Call initialize function to set initial states
+initialize();
+
