@@ -347,13 +347,22 @@ function checkMandatoryFields() {
                     }
                 }
             } else if (item.indexOf("CheckBox200") !== -1 && item.indexOf("Text7") !== -1) {
-                var checkbox200 = this.getField("CheckBox200");
-                var text7 = this.getField("Text7");
-                if (!(checkbox200 && (checkbox200.value === "Yes" || checkbox200.value === "On")) && !(text7 && typeof text7.value === "string" && text7.value.trim() !== "")) {
-                    app.alert("Either '" + (fieldDescriptions["CheckBox200"] || "Work Order N/A") + "' must be checked or '" + (fieldDescriptions["Text7"] || "Work Order Number") + "' must be filled out.");
-                    return;
-                }
-            } else {
+    var checkbox200 = this.getField("CheckBox200");
+    var text7 = this.getField("Text7");
+    
+    // Debugging
+    if(DEBUG) console.println("CheckBox200 Value: " + checkbox200.value);
+    if(DEBUG) console.println("Text7 Value: " + text7.value);
+	if(DEBUG) console.println("CheckBox200 Checked Status: " + checkbox200.isBoxChecked(0));
+	if(DEBUG) console.println("Text7 Actual Value: [" + text7.value + "]");
+
+    
+    if (checkbox200.value === "Off" && (!text7.value || String(text7.value).trim() === "")) {
+    app.alert("Either '" + (fieldDescriptions["CheckBox200"] || "Work Order N/A") + "' must be checked or '" + (fieldDescriptions["Text7"] || "Work Order Number") + "' must be filled out.");
+    return;
+}
+
+} else {
                 var groupHasValue = false;
                 for (var i = 0; i < item.length; i++) {
                     var groupField = this.getField(item[i]);
